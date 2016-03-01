@@ -45,7 +45,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>bundle install; bundle exec rspec spec/acceptance</command>
+      <command>bundle update; bundle exec rspec spec/acceptance</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
