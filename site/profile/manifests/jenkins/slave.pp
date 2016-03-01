@@ -26,7 +26,7 @@ class profile::jenkins::slave {
   #       exercise for after people are familiar with basic installation
   #       and job configuration.
 
-  package { ['ruby','ruby-devel','ruby-gem']:
+  package { 'ruby':
     ensure => present,
   }
   package { 'puppet-lint':
