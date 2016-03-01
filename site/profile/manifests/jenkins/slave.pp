@@ -58,10 +58,10 @@ class profile::jenkins::slave {
     provider => 'gem',
   }
 
+  include beaker::docker
   class { 'beaker':
     jenkins_users => ['jenkins-slave'],
   }->
-  include beaker::docker
 
   file { '/var/run/docker.sock':
     mode => '777',
