@@ -49,6 +49,11 @@ class profile::jenkins::slave {
     provider => 'puppet_gem',
     before   => Class[ '::jenkins::slave' ],
   }
+  
+  package { 'bundler':
+    ensure   => present,
+    provider => 'puppet_gem',
+  }
 
   class { 'beaker':
     jenkins_users => ['jenkins-slave'],
