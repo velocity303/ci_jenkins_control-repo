@@ -59,7 +59,7 @@ class profile::jenkins::slave {
   }
 
   class { 'beaker::docker':
-    jenkins_user => ['jenkins-slave'],
+    jenkins_users => ['jenkins-slave'],
   }
   class { 'beaker':
     jenkins_users => ['jenkins-slave'],
