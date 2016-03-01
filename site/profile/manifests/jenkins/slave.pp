@@ -58,7 +58,9 @@ class profile::jenkins::slave {
     provider => 'gem',
   }
 
-  include beaker::docker
+  class { 'beaker::docker':
+    jenkins_user => ['jenkins-slave'],
+  }
   class { 'beaker':
     jenkins_users => ['jenkins-slave'],
   }->
