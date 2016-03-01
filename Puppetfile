@@ -18,6 +18,7 @@ mod "puppetlabs/java"
 mod "darin/zypprepo"
 mod "camptocamp/archive"
 mod "hunner/hiera"
+mod "vshn/gitlab"
 
 #An example of using a specific forge module version instead of latest
 #Notice the addition of single quotes
