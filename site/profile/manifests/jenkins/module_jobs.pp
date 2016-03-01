@@ -2,6 +2,7 @@ define profile::jenkins::module_jobs {
   # This is primarily to make the template more clear.
   $test_module_name = $name
   $gitlab_url = 'http://gitlab'
+  $gitlab_username  = 'demouser'
 
   # Create some jobs to do linting, rspec and serverspec tests.
   jenkins::job { "${name}_lint":
