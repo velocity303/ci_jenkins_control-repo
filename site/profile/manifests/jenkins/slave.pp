@@ -35,11 +35,6 @@ class profile::jenkins::slave {
     before   => Class[ '::jenkins::slave' ],
   }
 
-  package { 'nokogiri':
-    ensure   => present,
-    provider => 'gem',
-  }
-
   package { 'rspec-puppet':
     ensure   => present,
     provider => 'gem',
