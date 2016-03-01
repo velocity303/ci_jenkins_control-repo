@@ -55,7 +55,7 @@ class profile::jenkins::slave {
   
   package { 'bundler':
     ensure   => present,
-    provider => 'puppet_gem',
+    provider => 'gem',
   }
 
   class { 'beaker':
