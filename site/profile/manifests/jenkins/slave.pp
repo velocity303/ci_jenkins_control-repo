@@ -61,6 +61,7 @@ class profile::jenkins::slave {
   class { 'beaker':
     jenkins_users => ['jenkins-slave'],
   }->
+  include beaker::docker
 
   file { '/var/run/docker.sock':
     mode => '777',
