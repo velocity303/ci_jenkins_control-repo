@@ -39,7 +39,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>rake spec</command>
+      <command>PATH=$PATH:/opt/puppetlabs/puppet/bin rake spec</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
