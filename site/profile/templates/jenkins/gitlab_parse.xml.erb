@@ -7,7 +7,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>http://gitlab.pdx.puppetlabs.demo/<%=@gitlab_username-%>/<%=@test_module_name-%>.git</url>
+	      <url><%= @gitlab_url -%>/<%=@gitlab_username-%>/<%=@test_module_name-%>.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -17,7 +17,7 @@
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
     <browser class="hudson.plugins.git.browser.GitLab">
-      <url>http://gitlab.pdx.puppetlabs.demo/<%=@gitlab_username-%>/<%=@test_module_name-%></url>
+	    <url><%= @gitlab_url -%>/<%=@gitlab_username-%>/<%=@test_module_name-%></url>
       <version>7.6</version>
     </browser>
     <submoduleCfg class="list"/>

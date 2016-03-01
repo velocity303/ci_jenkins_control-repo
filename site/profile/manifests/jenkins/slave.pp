@@ -10,7 +10,7 @@ class profile::jenkins::slave {
   #       demo as simple as possible.
 
   class { '::jenkins::slave':
-    masterurl => 'http://jenkins.pdx.puppetlabs.demo:8080',
+    masterurl => 'http://jenkins_master:8080',
   }
 
   # Install the gems that we will use for basic syntax and spec testing.
