@@ -39,7 +39,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>PATH=$PATH:/opt/puppetlabs/puppet/bin bundle install; PATH=$PATH:/opt/puppetlabs/puppet/bin bbundle exec rspec spec/acceptance</command>
+      <command>PATH=$PATH:/opt/puppetlabs/puppet/bin bundle update; PATH=$PATH:/opt/puppetlabs/puppet/bin bbundle exec rspec spec/acceptance</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
