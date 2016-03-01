@@ -26,27 +26,30 @@ class profile::jenkins::slave {
   #       exercise for after people are familiar with basic installation
   #       and job configuration.
 
+  package { ['ruby','ruby-devel','ruby-gem']:
+    ensure => present,
+  }
   package { 'puppet-lint':
     ensure   => present,
-    provider => 'puppet_gem',
+    provider => 'gem',
     before   => Class[ '::jenkins::slave' ],
   }
 
   package { 'rspec-puppet':
     ensure   => present,
-    provider => 'puppet_gem',
+    provider => 'gem',
     before   => Class[ '::jenkins::slave' ],
   }
 
   package { 'puppetlabs_spec_helper':
     ensure   => present,
-    provider => 'puppet_gem',
+    provider => 'gem',
     before   => Class[ '::jenkins::slave' ],
   }
 
   package { 'serverspec':
     ensure   => present,
-    provider => 'puppet_gem',
+    provider => 'gem',
     before   => Class[ '::jenkins::slave' ],
   }
   
