@@ -38,25 +38,5 @@ class profile::puppetmaster {
     owner  => 'pe-puppet',
     group  => 'pe-puppet',
   }
-
-  package { 'gcc-c++':
-    ensure => present,
-  }->
-  package { 'activesupport':
-    ensure   => present,
-    provider => puppetserver_gem,
-  }
-
-  file { '/etc/puppetlabs/facter':
-    ensure  => directory,
-  }->
-  file { '/etc/puppetlabs/facter/facts.d':
-    ensure => directory,
-  }->
-  File <<| tag == 'kubernetes' |>>
-  file { '/etc/puppetlabs/puppet/kubernetes.conf':
-    ensure  => present,
-    content => template('profile/kubernetes.conf.erb'),
-  }
-
+ 
 }
