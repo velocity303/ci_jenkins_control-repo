@@ -11,6 +11,7 @@ class profile::jenkins::slave {
 
   class { '::jenkins::slave':
     masterurl => 'http://jenkins-master:8080',
+    subscribe => Class['profile::path'],
   }
 
   # Install the gems that we will use for basic syntax and spec testing.
@@ -31,38 +32,34 @@ class profile::jenkins::slave {
   }
   package { 'puppet-lint':
     ensure   => present,
-    provider => 'gem',
+    provider => 'puppet_gem',
     before   => Class[ '::jenkins::slave' ],
   }
 
   package { 'rspec-puppet':
     ensure   => present,
-    provider => 'gem',
+    provider => 'puppet_gem',
     before   => Class[ '::jenkins::slave' ],
   }
 
   package { 'puppetlabs_spec_helper':
     ensure   => present,
-    provider => 'gem',
+    provider => 'puppet_gem',
     before   => Class[ '::jenkins::slave' ],
   }
 
   package { 'serverspec':
     ensure   => present,
-    provider => 'gem',
+    provider => 'puppet_gem',
     before   => Class[ '::jenkins::slave' ],
   }
   
   package { 'bundler':
     ensure   => present,
-    provider => 'gem',
+    provider => 'puppet_gem',
   }
 
-  package { 'puppet':
-    ensure   => present,
-    provider => 'gem',
-  }
-
+  include profile::path
   class { 'beaker::docker':
     jenkins_users => ['jenkins-slave'],
   }

@@ -39,7 +39,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>bundle update; bundle exec rspec spec/acceptance</command>
+      <command>/opt/puppetlabs/puppet/bin/bundle update; /opt/puppetlabs/puppet/bin/bundle exec rspec spec/acceptance</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
