@@ -58,6 +58,11 @@ class profile::jenkins::slave {
     provider => 'gem',
   }
 
+  package { 'puppet':
+    ensure   => present,
+    provider => 'gem',
+  }
+
   class { 'beaker::docker':
     jenkins_users => ['jenkins-slave'],
   }
