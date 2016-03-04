@@ -58,6 +58,11 @@ class profile::jenkins::slave {
     ensure   => present,
     provider => 'puppet_gem',
   }
+  $rubygems = ['jwt']
+  package { $rubygems:
+    ensure   => present,
+    provider => 'puppet_gem',
+  }
 
   include profile::path
   class { 'beaker::docker':
