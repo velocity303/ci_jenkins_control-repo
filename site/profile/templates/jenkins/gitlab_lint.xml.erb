@@ -1,13 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?><project>
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
   <actions/>
   <description>Performs puppet lint tests on the <%=@test_module_name-%> module. Triggers in response to a gitlab webhook, using the gitlab-webhook plugin.</description>
   <keepDependencies>false</keepDependencies>
   <properties/>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.3.2">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.4.2">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-	      <url><%= @gitlab_url -%>/<%=@gitlab_username-%>/puppet-<%=@test_module_name-%>.git</url>
+        <name>origin</name>
+        <refspec>+refs/heads/development:refs/remotes/origin/development</refspec>
+        <url><%= @gitlab_url -%>/<%=@gitlab_username-%>/puppet-<%=@test_module_name-%>.git</url>
+        <credentialsId>22102270-363d-4a78-b006-dd02181568d0</credentialsId>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -17,7 +21,7 @@
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
     <browser class="hudson.plugins.git.browser.GitLab">
-	    <url><%= @gitlab_url -%>/<%=@gitlab_username-%>/puppet-<%=@test_module_name-%></url>
+      <url><%= @gitlab_url -%>/<%=@gitlab_username-%>/puppet-<%=@test_module_name-%></url>
       <version>7.6</version>
     </browser>
     <submoduleCfg class="list"/>
@@ -28,7 +32,24 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>true</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers/>
+  <triggers>
+    <com.dabsquared.gitlabjenkins.GitLabPushTrigger plugin="gitlab-plugin@1.1.31">
+      <spec></spec>
+      <triggerOnPush>true</triggerOnPush>
+      <triggerOnMergeRequest>false</triggerOnMergeRequest>
+      <triggerOpenMergeRequestOnPush>never</triggerOpenMergeRequestOnPush>
+      <ciSkip>true</ciSkip>
+      <setBuildDescription>true</setBuildDescription>
+      <addNoteOnMergeRequest>true</addNoteOnMergeRequest>
+      <addCiMessage>false</addCiMessage>
+      <addVoteOnMergeRequest>true</addVoteOnMergeRequest>
+      <branchFilterName>NameBasedFilter</branchFilterName>
+      <includeBranchesSpec>development, </includeBranchesSpec>
+      <excludeBranchesSpec>master, </excludeBranchesSpec>
+      <targetBranchRegex></targetBranchRegex>
+      <acceptMergeRequestOnSuccess>false</acceptMergeRequestOnSuccess>
+    </com.dabsquared.gitlabjenkins.GitLabPushTrigger>
+  </triggers>
   <concurrentBuild>false</concurrentBuild>
   <customWorkspace><%=@test_module_name-%></customWorkspace>
   <builders>
@@ -38,4 +59,3 @@
   </builders>
   <publishers/>
   <buildWrappers/>
-</project>
