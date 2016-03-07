@@ -45,7 +45,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>/opt/puppetlabs/bin/puppet parser validate manifests/init.pp</command>
+      <command>. /etc/profile; /opt/puppetlabs/bin/puppet parser validate manifests/init.pp</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
