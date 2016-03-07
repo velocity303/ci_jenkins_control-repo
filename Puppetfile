@@ -35,5 +35,4 @@ mod "beaker",
   :git => 'https://github.com/velocity303/puppet-beaker.git'
 
 mod "ntp",
-  :git => 'http://gitlab/demouser/puppet-ntp.git',
-  :ref => 'release'
+  :git => 'http://gitlab/demouser/puppet-ntp.git'
