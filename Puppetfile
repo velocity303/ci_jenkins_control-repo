@@ -1,12 +1,11 @@
 forge "http://forge.puppetlabs.com"
 
 # Modules from the Puppet Forge
-# Note the versions are all set to :latest but after you've 
+# Note the versions are all set to :latest but after you've
 # installed you should change them to the exact version you want
 mod "puppetlabs/inifile"
 mod "puppetlabs/stdlib"
 mod "puppetlabs/concat"
-mod "puppetlabs/ntp"
 mod "puppetlabs/firewall"
 mod "nanliu/staging"
 mod "lwf/remote_file"
@@ -34,3 +33,7 @@ mod 'gms',
 
 mod "beaker",
   :git => 'https://github.com/velocity303/puppet-beaker.git'
+
+mod "ntp",
+  :git => 'http://gitlab/demouser/puppet-ntp.git'
+  :tag => 'release'
