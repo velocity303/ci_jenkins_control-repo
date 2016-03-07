@@ -45,7 +45,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>. /etc/profile; rake spec</command>
+      <command>PATH=/opt/puppetlabs/puppet/bin:$PATH rake spec</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

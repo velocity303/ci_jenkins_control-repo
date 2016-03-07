@@ -33,7 +33,7 @@
   <customWorkspace><%=@test_module_name-%></customWorkspace>
   <builders>
     <hudson.tasks.Shell>
-      <command>. /etc/profile; puppet-lint manifests/init.pp</command>
+      <command>PATH=/opt/puppetlabs/puppet/bin:$PATH /opt/puppetlabs/puppet/bin/puppet-lint manifests/init.pp</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
