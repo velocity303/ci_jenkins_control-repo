@@ -36,4 +36,4 @@ mod "beaker",
 
 mod "ntp",
   :git => 'http://gitlab/demouser/puppet-ntp.git',
-  :tag => 'release'
+  :ref => 'release'
