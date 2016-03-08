@@ -14,7 +14,7 @@
 # Disable filebucket by default for all File resources:
 #http://docs.puppetlabs.com/pe/latest/release_notes.html#filebucket-resource-no-longer-created-by-default
 File { backup => false }
-
+Service { enable => false }
 # DEFAULT NODE
 # Node definitions in this file are merged with node data from the console. See
 # http://docs.puppetlabs.com/guides/language_guide.html#nodes for more on
@@ -34,8 +34,8 @@ node default {
   if !empty( $trusted['extensions']['pp_role'] ) {
     include "role::${trusted['extensions']['pp_role']}"
   }
-  
-  #include profile::app_orch_settings 
+
+  #include profile::app_orch_settings
 
 
   # This is where you can declare classes for all nodes.
@@ -66,4 +66,3 @@ node default {
 #    }
 #  }
 #}
-
