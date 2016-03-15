@@ -20,4 +20,8 @@ define profile::jenkins::module_jobs {
   jenkins::job { "gitlab_${name}_serverspec":
     config => template("profile/jenkins/gitlab_serverspec.xml.erb"),
   }
+
+  jenkins::job { "gitlab_${name}_push_release":
+    config => template("profile/jenkins/gitlab_push_release.xml.erb"),
+  }
 }

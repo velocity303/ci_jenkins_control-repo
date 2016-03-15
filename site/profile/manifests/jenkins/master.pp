@@ -21,4 +21,9 @@ class profile::jenkins::master (
   }
 
   profile::jenkins::module_jobs { "${test_module_name}": }
+  
+  jenkins::job { "release_code_to_master":
+    config => template("profile/jenkins/release_code_manager.xml.erb"),
+  }
+
 }

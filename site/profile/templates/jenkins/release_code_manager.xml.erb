@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <jenkins.triggers.ReverseBuildTrigger>
+      <spec></spec>
+      <upstreamProjects>gitlab_push_release_ntp,</upstreamProjects>
+      <threshold>
+        <name>SUCCESS</name>
+        <ordinal>0</ordinal>
+        <color>BLUE</color>
+        <completeBuild>true</completeBuild>
+      </threshold>
+    </jenkins.triggers.ReverseBuildTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command># -w &apos;response: %{http_code} \n&apos;
+curl -v -k -X POST -H &apos;Content-Type: application/json&apos; \
+	https://puppet-master:8170/code-manager/v1/deploys?token=eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkZXBsb3kiLCJpYXQiOjE0NTc0MDM0ODgsImV4cCI6MTc3MjkzNjI4OCwic3ViIjp7ImlkIjoiZTQ4M2NjYzktOTEyNi00NmNiLWIzYjktNDQxY2QzOGQyYjE2IiwibG9naW4iOiJkZXBsb3kifX0.OLSf88xPH2wBYQnTv7fuFRT09W0CwSjCMmEe4ocDKq2fsmJQXKTpoKlxFOnUxi4LWh8unH7G6537gPOFsQE0viMkIwpqgg3rAFxv5sIXXD_yQYU0L4q2hEwadV9F7DgywZnz6dqzn8Pp6PhmhqYhHIv6mOhoEsLQs80MvLq0fhezsybVKjH2MTXH5cwJvc9YJWgjqPH3FiTaYP_P24fYbf2MA-iWbhKBD0mN_lFJe06AFskI5o5wrMykDy6DR7E202KlMghAOJqlMjQ01xc1NMuq1N-DxYiwd18dtoaKxv82lgTqvN7ehYiDAGNKeBQc4S83ejc_f8TlRVtaCzjB5VD7dRU9Glquz0757UsTeH64B7JWh2_Txjtlvi-jsi917BCGYgpeXse3oCCUjbuDvZ2T1egGzuZC9sXEhYXOKYg7mmZ5Lf9CWk57L9u-zrDfdbvJozm-xeH-deXI2cEmXpdKhjuGKmiCqjd5gH2HfDZ7E6aQ36JCVL53kdWvBQ7p3knrWaGu1H2EmgTBU8BrRm6conOfcUcl4m7cxObK3nR8ADh0Nx8juI8RuKWGTmCoB3N14N4EX2xim7BhY_GJEQKkrmFSSS-IYilxvZhExhI8lvqjRcZyNR9DAm5olip6jiF7LU_JZTfusFynYekYjwQGEBrFO2M3NOZkQNZYpSQ \
+	-d &apos;{&quot;environments&quot;: [&quot;production&quot;], &quot;wait&quot;: true}&apos; | cat</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>
